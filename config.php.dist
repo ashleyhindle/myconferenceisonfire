@@ -1,0 +1,6 @@
+<?php
+return [
+	'accountSid' => 'cheese',
+	'authToken' => 'burger',
+	'appSid' => 'tasty',
+];
