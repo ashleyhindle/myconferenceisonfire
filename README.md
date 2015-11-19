@@ -2,11 +2,15 @@
 
 Very basic conferencing system built on Twilio
 
+## Test it out (a little bit, I'm not made of money!)
+[http://conference.ashleyhindle.com](http://conference.ashleyhindle.com)
+
 
 ## How to dial in
 
 * Call your Twilio Number
 * Go to your website and use the twilio javascript client
+
 
 ## Setup
 
