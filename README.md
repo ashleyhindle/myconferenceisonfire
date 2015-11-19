@@ -7,6 +7,7 @@ Very basic conferencing system built on Twilio
 
 * Add a [TwiML app](https://www.twilio.com/user/account/voice/dev-tools/twiml-apps) to your Twilio account and set the Voice URL to `http://mydomain.com/myconferenceisonfire/simple-conference.php` and `HTTP GET`
 * [Buy a number](https://www.twilio.com/user/account/voice/phone-numbers) from Twilio and set it to use your new TwiML app.
+* Call your new number, and enter any number and ask other people to enter the same number
 
 ![image](twiml-app.png)  
 
