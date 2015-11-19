@@ -3,29 +3,31 @@ $protocol = (isset($_SERVER['HTTPS'])) ? 'https' : 'http';
 $url = "{$protocol}://{$_SERVER['HTTP_HOST']}";
 $url .= str_replace(basename(__FILE__), '',  $_SERVER['PHP_SELF']);
 
-$waitUrl = (file_exists('sounds/wait.wav')) ? "{$url}/sounds/wait.wav" : 'http://twimlets.com/holdmusic?Bucket=com.twilio.music.ambient';
-$welcomeAction = (file_exists('sounds/welcome.wav')) ? "<Play>{$url}/sounds/welcome.wav</Play>" : '<Say>Welcome to My Conference Is On Fire!</Say>';
-$joiningAction = (file_exists('sounds/joining.wav')) ? "<Play>{$url}/sounds/joining.wav</Play>" : '<Say>Joining the conference now</Say>';
-$enterPinAction = (file_exists('sounds/enter-pin.wav')) ? "<Play>{$url}/sounds/enter-pin.wav</Play>" : '<Say>Please enter your conference pin number followed by the pound or hash key.</Say>';
-$invalidPinAction = (file_exists('sounds/invalid-pin.wav')) ? "<Play>{$url}/sounds/invalid-pin.wav</Play>" : '<Say>Joining the conference now</Say>';
+$sounds = [
+	'wait' => [ 'local' => 'sounds/wait.wav', 'remote' => "{$url}/sounds/wait.wav" ],
+	'joining' => [ 'local' => 'sounds/joining.wav', 'remote' => "{$url}/sounds/joining.wav" ],
+	'welcome' => [ 'local' => 'sounds/professional/welcome-mciof.wav', 'remote' => "{$url}/sounds/professional/welcome-mciof.wav" ],
+	'enterPin' => [ 'local' => 'sounds/professional/enter-pin.wav', 'remote' => "{$url}/sounds/professional/enter-pin.wav" ],
+	'invalidPin' => [ 'local' => 'sounds/professional/invalid-pin.wav', 'remote' => "{$url}/sounds/professional/invalid-pin.wav" ],
+];
 
 if (isset($_POST['Digits'])) {
     echo <<<TWIML
     <Response>
-	{$joiningAction}
+	<Play>{$sounds['joining']['remote']}</Play>
         <Dial>
-            <Conference waitMethod="GET" waitUrl="{$waitUrl}" beep="true">mciof{$_POST['Digits']}</Conference>
+            <Conference waitMethod="GET" waitUrl="{$sounds['wait']['remote']}" beep="true">mciof{$_POST['Digits']}</Conference>
         </Dial>
     </Response>
 TWIML;
 } else {
     echo <<<TWIML
     <Response>
-	{$welcomeAction}
+	<Play>{$sounds['welcome']['remote']}</Play>
         <Gather timeout="10" finishOnKey="#">
-		{$enterPinAction}
+		<Play>{$sounds['enterPin']['remote']}</Play>
         </Gather>
-	{$invalidPinAction}
+	<Play>{$sounds['invalidPin']['remote']}</Play>
 </Response>
 TWIML;
 }
