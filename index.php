@@ -56,6 +56,9 @@ $deviceToken = $token->generateToken();
 				<div class="key nb"></div>
 				<div class="clear"></div>
 			</div>
+			<p>
+				<a href='https://twitter.com/ashleyhindle'>Made by @ashleyhindle</a> &bull; <a href='https://github.com/ashleyhindle/myconferenceisonfire/'>GitHub</a>
+			</p>
 		</div>
 
 	</body>
