@@ -22,6 +22,7 @@ Very basic conferencing system built on Twilio
 * Grab your `authToken` and `accountSid` from your [account settings](https://www.twilio.com/user/account/settings) page
 
 * Copy `config.php.dist` to `config.php` and set the details
+* `composer install`
 * Go to `http://mydomain.com/myconferenceisonfire/` and press the big green button
 
 
