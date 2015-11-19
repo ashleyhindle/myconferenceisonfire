@@ -1,6 +1,10 @@
 <?php
 // Borrowed and modified from https://www.twilio.com/docs/tutorials/twilio-client-browser-soft-phone and https://www.twilio.com/docs/tutorials/twilio-client-browser-conference-call and http://codepen.io/virelli/pen/mnhgd
 require_once 'vendor/autoload.php';
+if (!file_exists('config.php')) {
+	echo 'Please ensure config.php exists: cp config.php.dist config.php; vim config.php';
+	exit;
+}
 $tokens = require_once 'config.php';
 
 $token = new Services_Twilio_Capability($tokens['accountSid'], $tokens['authToken']);
