@@ -3,7 +3,7 @@ $protocol = (isset($_SERVER['HTTPS'])) ? 'https' : 'http';
 $url = "{$protocol}://{$_SERVER['HTTP_HOST']}";
 $url .= str_replace(basename(__FILE__), '',  $_SERVER['PHP_SELF']);
 
-$waitUrl = (file_exists('sounds/wait.wav')) ? $url . 'wait.mp3' : 'http://twimlets.com/holdmusic?Bucket=com.twilio.music.ambient';
+$waitUrl = (file_exists('sounds/wait.wav')) ? $url . 'wait.wav' : 'http://twimlets.com/holdmusic?Bucket=com.twilio.music.ambient';
 $welcomeAction = (file_exists('sounds/welcome.wav')) ? "<Play>{$url}/sounds/welcome.wav</Play>" : '<Say>Welcome to My Conference Is On Fire!</Say>';
 $joiningAction = (file_exists('sounds/joining.wav')) ? "<Play>{$url}/sounds/joining.wav</Play>" : '<Say>Joining the conference now</Say>';
 $enterPinAction = (file_exists('sounds/enter-pin.wav')) ? "<Play>{$url}/sounds/enter-pin.wav</Play>" : '<Say>Please enter your conference pin number followed by the pound or hash key.</Say>';
