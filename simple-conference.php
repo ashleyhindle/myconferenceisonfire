@@ -1,7 +1,7 @@
 <?php
 $protocol = (isset($_SERVER['HTTPS'])) ? 'https' : 'http';
 $url = "{$protocol}://{$_SERVER['HTTP_HOST']}";
-$url .= str_replace($_SERVER['SCRIPT_NAME'], '',  $_SERVER['PHP_SELF']) . '/';
+$url .= str_replace(basename(__FILE__), '',  $_SERVER['PHP_SELF']);
 
 $waitUrl = (file_exists('wait.mp3')) ? $url . 'wait.mp3' : 'http://twimlets.com/holdmusic?Bucket=com.twilio.music.ambient';
 $joiningAction = (file_exists('sounds/joining.wav')) ? "<Play>{$url}/sounds/joining.wav</Play>" : '<Say>Joining the conference now</Say>';
