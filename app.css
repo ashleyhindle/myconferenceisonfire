@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
@@ -10,6 +11,8 @@ body {
   padding:24px 0 0 0;
   background:#fff;
 }
+
+
 .key {
   border-radius: 50px 50px 50px 50px;
   color:#444;
@@ -63,10 +66,22 @@ body {
   clear:both;
 }
 
-.callbyphone:after {
-	content: " | ";
-}
+/* Landscape phones and down */
+@media only screen and (max-width: 40em) { /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+	#wrapper {
+		display:none;
+	}
 
-.callbyphone:last-of-type:after {
-	content: "";
+	#status:after {
+		content: "Softphone not supported on this device";
+	}
+
+	#callbyphonewrapper {
+		padding: 0.5rem;
+		font-size: 2rem;
+	}
+
+	.callbyphone {
+		font-size: 2.5rem;
+	}
 }

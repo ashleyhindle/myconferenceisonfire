@@ -18,7 +18,7 @@ $deviceToken = $token->generateToken();
 		<title>
 			MyConferenceIsOnFire
 		</title>
-
+		<meta name="viewport" content="width=device-width; maximum-scale=1; minimum-scale=1;" />
 		<meta property="og:site_name" content="conference.ashleyhindle.com" />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="Conference call system" />
@@ -46,9 +46,7 @@ $deviceToken = $token->generateToken();
 	<body>
 		<input type="hidden" id="deviceToken" value="<?= $deviceToken ?>">
 		<div align="center">
-			<div id="status">
-				Hold on...
-			</div>
+			<div id="status"></div>
 
 			<div id="wrapper">    
 				<div class="key" rel="1">1</div>
@@ -75,10 +73,11 @@ $deviceToken = $token->generateToken();
 
 			<?php
 			if (isset($config['numbers']) && !empty($config['numbers'])) {
-				echo "Call by phone: ";
+				echo "<div id='callbyphonewrapper'><h3>Call by phone</h3>";
 				foreach ($config['numbers'] as $countryCode => $number) {
-					echo "<span class='callbyphone'><strong>{$countryCode}</strong>: <a href='tel:{$number}'>{$number}</a></span>";
+					echo "<div class='callbyphone'><strong>{$countryCode}</strong>: <a href='tel:{$number}'>{$number}</a></div>";
 				}
+				echo "</div>";
 			}
 			?>
 
