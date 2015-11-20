@@ -40,6 +40,7 @@ $(document).ready(function(){
 		$('.key.phone').show();
 		$(".key").click(function() {
 			var value = $(this).attr("rel");
+
 			if (value == "connect") {
 				connection = Twilio.Device.connect({'conferenceCode': conferenceCode});
 			} else if (value == "disconnect") {

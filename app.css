@@ -51,6 +51,11 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+
+.key:hover {
+  background-color: #DBDDDE;
+}
+
 .key span {
   display:block;
   color:#444;
