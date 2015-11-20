@@ -10,6 +10,27 @@ $config = require_once 'config.php';
 $token = new Services_Twilio_Capability($config['accountSid'], $config['authToken']);
 $token->allowClientOutgoing($config['appSid']);
 
+$conferenceCode = (isset($_GET['code'])) ? $_GET['code'] : rand(11111, 99999);
+
+if (isset($_GET['getParticipants'])) {
+	header('Content-Type: application/json');
+
+	$client = new Services_Twilio($config['accountSid'], $config['authToken']);
+	$participants = [];
+
+	$conferences = $client->account->conferences->getPage(0, 50, array('Status' => 'in-progress'));
+	foreach ($conferences->getItems() as $conference) {
+		if ($conference->friendly_name == $_GET['getParticipants']) {
+			foreach($client->account->conferences->get($conference->Sid)->participants as $participant) {
+				$participants[] = (array)$participant;
+			}
+		}
+	}
+
+	echo json_encode($participants, JSON_PRETTY_PRINT);
+	exit;
+}
+
 $deviceToken = $token->generateToken();
 ?>
 <!DOCTYPE HTML>
@@ -45,7 +66,9 @@ $deviceToken = $token->generateToken();
 	</head>
 	<body>
 		<input type="hidden" id="deviceToken" value="<?= $deviceToken ?>">
+		<input type="hidden" id="conferenceCode" value="<?= $conferenceCode ?>">
 		<div align="center">
+			<div id="conferenceCode">Conference code: <?= $conferenceCode ?></div>
 			<div id="status"></div>
 
 			<div id="wrapper">    

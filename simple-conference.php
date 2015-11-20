@@ -14,7 +14,7 @@ $sounds = [
 // This is my horrible voice at the minute, so only play it when we have a good one
 $joiningAction = (file_exists($sounds['joining']['local'])) ? "<Play>{$sounds['joining']['remote']}</Play>" : '';
 
-if (isset($_POST['Digits'])) {
+if (isset($_POST['Digits']) || isset($_GET['conferenceCode']) && !empty($_GET['conferenceCode'])) {
     echo <<<TWIML
     <Response>
 	{$joiningAction}
