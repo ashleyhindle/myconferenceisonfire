@@ -23,23 +23,23 @@ $deviceToken = $token->generateToken();
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="Conference call system" />
 		<meta property="og:description" content="Open source conference call system built with Twilio, PHP and Javascript, with a web based soft phone" />
-		<meta property="og:url" content="http://conference.ashleyhindle.com" />
-		<meta property="og:image" content="http://conference.ashleyhindle.com/og.png" />
+		<meta property="og:url" content="https://conference.ashleyhindle.com" />
+		<meta property="og:image" content="https://conference.ashleyhindle.com/og.png" />
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@ashleyhindle" />
 		<meta name="twitter:creator" content="@ashleyhindle" />
 		<meta name="twitter:title" content="Conference call system" />
 		<meta name="twitter:description" content="Open source conference call system built with Twilio, PHP and Javascript, with a web based soft phone" />
-		<meta name="twitter:url" content="http://conference.ashleyhindle.com" />
-		<meta name="twitter:image:src" content="http://conference.ashleyhindle.com/og.png" />
+		<meta name="twitter:url" content="https://conference.ashleyhindle.com" />
+		<meta name="twitter:image:src" content="https://conference.ashleyhindle.com/og.png" />
 
-		<link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<link href="app.css" rel="stylesheet">
 
 		<script type="text/javascript" src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 
 		<script type="text/javascript" src="app.js"></script>
 	</head>
