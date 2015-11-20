@@ -31,7 +31,7 @@ if (isset($_GET['getParticipants'])) {
 					'dateUpdated' => $participant->date_updated,
 					'call' => [
 						'from' => $call->from,
-						'duration' => $call->duration,
+						'duration' => $duration,
 					]
 				];
 			}
