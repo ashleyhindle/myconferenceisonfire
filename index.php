@@ -73,6 +73,8 @@ $deviceToken = $token->generateToken();
 		<script type="text/javascript" src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 
+		<script type="text/javascript" src="moment.js"></script>
+		<script type="text/javascript" src="moment-duration-format.js"></script>
 		<script type="text/javascript" src="app.js"></script>
 	</head>
 	<body>

@@ -15,7 +15,8 @@ $(document).ready(function(){
 		$.get('/index.php?getParticipants=' + conferenceCode, function(data) {
 			$("#participants").html("");
 			$.each(data, function(index, participant) {
-				var $div = $("<div>", {class: "participant", html: participant.call.from + ", " + participant.call.duration + " secs"});
+				var human = moment.duration(participant.call.duration, "seconds").format("h:mm:ss", { trim: false });
+				var $div = $("<div>", {class: "participant", html: participant.call.from + ", " + human});
 				//$div.click(function(){ /* ... */ }); //@TODO: Mute? Unmute?
 				$("#participants").append($div);
 			});
