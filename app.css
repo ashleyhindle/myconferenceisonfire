@@ -56,3 +56,11 @@ body {
 .clear {
   clear:both;
 }
+
+.callbyphone:after {
+	content: " | ";
+}
+
+.callbyphone:last-of-type:after {
+	content: "";
+}

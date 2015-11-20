@@ -5,10 +5,10 @@ if (!file_exists('config.php')) {
 	echo 'Please ensure config.php exists: cp config.php.dist config.php; vim config.php';
 	exit;
 }
-$tokens = require_once 'config.php';
+$config = require_once 'config.php';
 
-$token = new Services_Twilio_Capability($tokens['accountSid'], $tokens['authToken']);
-$token->allowClientOutgoing($tokens['appSid']);
+$token = new Services_Twilio_Capability($config['accountSid'], $config['authToken']);
+$token->allowClientOutgoing($config['appSid']);
 
 $deviceToken = $token->generateToken();
 ?>
@@ -72,10 +72,19 @@ $deviceToken = $token->generateToken();
 				<div class="key nb"></div>
 				<div class="clear"></div>
 			</div>
+
+			<?php
+			if (isset($config['numbers']) && !empty($config['numbers'])) {
+				echo "Call by phone: ";
+				foreach ($config['numbers'] as $countryCode => $number) {
+					echo "<span class='callbyphone'><strong>{$countryCode}</strong>: {$number}</span>";
+				}
+			}
+			?>
+
 			<p>
 				<a href='https://twitter.com/ashleyhindle'>Made by @ashleyhindle</a> &bull; <a href='https://github.com/ashleyhindle/myconferenceisonfire/'>GitHub</a>
 			</p>
 		</div>
-
 	</body>
 </html>

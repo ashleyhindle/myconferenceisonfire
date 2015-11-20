@@ -3,4 +3,8 @@ return [
 	'accountSid' => 'cheese',
 	'authToken' => 'burger',
 	'appSid' => 'tasty',
+        'numbers' => [
+                'GB' => '0131 xxx xxxx',
+                'US' => '1800 xxx xxxx'
+        ]
 ];
