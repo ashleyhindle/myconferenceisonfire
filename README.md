@@ -3,7 +3,7 @@
 Very basic conferencing system built on Twilio
 
 ## Test it out (a little bit, I'm not made of money!)
-[http://conference.ashleyhindle.com](http://conference.ashleyhindle.com) - then ask your friend to join with the same code!
+[http://conference.ashleyhindle.com](http://conference.ashleyhindle.com) or call +441315101552 - then ask your friend to join with the same code!
 
 
 ## How to dial in
