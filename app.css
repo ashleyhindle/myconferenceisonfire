@@ -40,12 +40,15 @@ body {
   font-size:12px;
   text-transform:uppercase;
 }
+
 .key.special {
   line-height:60px;
 }
+
 .key.nb {
   border:none;
 }
+
 .key.phone {
   background:#5CDB74;
   border:none;
@@ -55,11 +58,17 @@ body {
 }
 
 .key.hangup {
-  background:#FF2A68;
+  background:#FF3B30;
   border:none;
   color:#FFF;
   line-height:60px;
   font-size:40px;
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
 }
 
 .clear {

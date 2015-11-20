@@ -13,7 +13,7 @@
 
 			Twilio.Device.setup($('#deviceToken').val());
 			Twilio.Device.ready(function (device) {
-				$('#status').html('Ready to join conference');
+				$('#status').html('Ready to join conference<br />To join, just click the green call button');
 				$('.key.phone').show();
 				$(".key").click(function() {
 					var value = $(this).attr("rel");
@@ -36,7 +36,8 @@
 			});
 
 			Twilio.Device.connect(function (conn) {
-				$('#status').html("Successfully established call");
+				$('#status').html("You're in conference, make sure to invite people and tell them your conference code");
+				$('.key').show();
 				toggleCallStatus();
 			});
 
