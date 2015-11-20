@@ -35,4 +35,4 @@ I had to add `audio/x-wav             wav;` to `/etc/nginx/mime.types` for Twili
 
 
 ## My Thanks
-Big thanks to @virelli / http://codepen.io/virelli/pen/mnhgd for the lovely looking dialpad
+Big thanks to @virelli / http://codepen.io/virelli/pen/mnhgd for the lovely looking dialpad and https://soundcloud.com/alexcornell/im-on-hold-by-alex-cornell for the amazing music
