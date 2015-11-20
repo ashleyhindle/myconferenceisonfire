@@ -23,6 +23,12 @@ body {
   margin:0 7px 10px 7px;
   border:1px solid #444;
   cursor:pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .key span {
   display:block;
