@@ -1,6 +1,16 @@
 		$(document).ready(function(){
 			var connection = null;
 
+			$(document).keypress(function(e) {
+				if (e.which == 35 || e.which == 42 || (e.which >= 48 && e.which <= 57)) {
+					var c = String.fromCharCode(e.which);
+					if (connection) {
+						connection.sendDigits(c);
+					}
+				}
+			});
+
+
 			Twilio.Device.setup($('#deviceToken').val());
 			Twilio.Device.ready(function (device) {
 				$('#status').html('Ready to join conference');
