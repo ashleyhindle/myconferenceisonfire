@@ -110,6 +110,14 @@ body {
   color: #FFFFFF;
 }
 
+#conferenceCode small a {
+  color: #D4EE9F;
+}
+
+#conferenceCode small a:visited {
+  color: #D4EE9F;
+}
+
 /* Landscape phones and down */
 @media only screen and (max-width: 40em) { /* max-width 640px, mobile-only styles, use when QAing mobile issues */
   .container {

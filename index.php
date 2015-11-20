@@ -7,6 +7,9 @@ if (!file_exists('config.php')) {
 }
 $config = require_once 'config.php';
 
+$protocol = (isset($_SERVER['HTTPS'])) ? 'https' : 'http';
+$url = "{$protocol}://{$_SERVER['HTTP_HOST']}";
+
 $token = new Services_Twilio_Capability($config['accountSid'], $config['authToken']);
 $token->allowClientOutgoing($config['appSid']);
 
@@ -51,20 +54,20 @@ $deviceToken = $token->generateToken();
 			MyConferenceIsOnFire
 		</title>
 		<meta name="viewport" content="width=device-width; maximum-scale=1; minimum-scale=1;" />
-		<meta property="og:site_name" content="conference.ashleyhindle.com" />
+		<meta property="og:site_name" content="<?= $url ?>" />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="Conference call system" />
 		<meta property="og:description" content="Open source conference call system built with Twilio, PHP and Javascript, with a web based soft phone" />
-		<meta property="og:url" content="https://conference.ashleyhindle.com" />
-		<meta property="og:image" content="https://conference.ashleyhindle.com/og.png" />
+		<meta property="og:url" content="<?= $url ?>" />
+		<meta property="og:image" content="<?= $url ?>/og.png" />
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@ashleyhindle" />
 		<meta name="twitter:creator" content="@ashleyhindle" />
 		<meta name="twitter:title" content="Conference call system" />
 		<meta name="twitter:description" content="Open source conference call system built with Twilio, PHP and Javascript, with a web based soft phone" />
-		<meta name="twitter:url" content="https://conference.ashleyhindle.com" />
-		<meta name="twitter:image:src" content="https://conference.ashleyhindle.com/og.png" />
+		<meta name="twitter:url" content="<?= $url ?>" />
+		<meta name="twitter:image:src" content="<?= $url ?>/og.png" />
 
 		<link href='//fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -107,7 +110,7 @@ $deviceToken = $token->generateToken();
 				</div>
 			</div>
 			<div id="right">
-				<div id="conferenceCode">Conference code: <?= $conferenceCode ?></div>
+				<div id="conferenceCode">Conference code: <?= $conferenceCode ?> <small><a href="<?= $url ?>/?code=<?= $conferenceCode ?>">Share</a></small></div>
 
 				<?php
 				if (isset($config['numbers']) && !empty($config['numbers'])) {
