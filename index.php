@@ -24,13 +24,14 @@ if (isset($_GET['getParticipants'])) {
 		if ($conference->friendly_name == 'mciof' . $_GET['getParticipants']) {
 			foreach($client->account->conferences->get($conference->sid)->participants as $participant) {
 				$call = $client->account->calls->get($participant->call_sid);
+				$duration = (new DateTime())->getTimestamp() - (new DateTime($call->start_time))->getTimestamp();
 				$participants[] = [
 					'callSid' => $participant->call_sid,
 					'dateCreated' => $participant->date_created,
 					'dateUpdated' => $participant->date_updated,
 					'call' => [
 						'from' => $call->from,
-						'duration' => $call->duration
+						'duration' => $call->duration,
 					]
 				];
 			}
