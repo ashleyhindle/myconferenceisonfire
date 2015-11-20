@@ -20,8 +20,9 @@ if (isset($_GET['getParticipants'])) {
 
 	$conferences = $client->account->conferences->getPage(0, 50, array('Status' => 'in-progress'));
 	foreach ($conferences->getItems() as $conference) {
+		echo "Found conference: {$conference->friendly_name}\n";
 		if ($conference->friendly_name == $_GET['getParticipants']) {
-			foreach($client->account->conferences->get($conference->Sid)->participants as $participant) {
+			foreach($client->account->conferences->get($conference->sid)->participants as $participant) {
 				$participants[] = (array)$participant;
 			}
 		}
