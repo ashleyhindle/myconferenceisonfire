@@ -42,7 +42,7 @@
 			});
 
 			Twilio.Device.disconnect(function (conn) {
-				$('#status').html("Call ended");
+				$('#status').html('Ready to join conference<br />To join, just click the green call button');
 				toggleCallStatus();
 			});
 			
