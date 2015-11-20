@@ -18,11 +18,20 @@ if (isset($_GET['getParticipants'])) {
 	$client = new Services_Twilio($config['accountSid'], $config['authToken']);
 	$participants = [];
 
+	//@TODO: Cache lots
 	$conferences = $client->account->conferences->getPage(0, 50, array('Status' => 'in-progress'));
 	foreach ($conferences->getItems() as $conference) {
 		if ($conference->friendly_name == 'mciof' . $_GET['getParticipants']) {
 			foreach($client->account->conferences->get($conference->sid)->participants as $participant) {
-				$participants[] = (array)$participant;
+				$call = $client->account->calls->get($participant->call_sid);
+				$participants[] = [
+					'callSid' => $participant->call_sid,
+					'dateCreated' => $participant->date_created,
+					'dateUpdated' => $participant->date_updated,
+					'call' => [
+						'from' => $call->from
+					]
+				];
 			}
 		}
 	}
@@ -67,42 +76,50 @@ $deviceToken = $token->generateToken();
 	<body>
 		<input type="hidden" id="deviceToken" value="<?= $deviceToken ?>">
 		<input type="hidden" id="conferenceCode" value="<?= $conferenceCode ?>">
-		<div align="center">
-			<div id="conferenceCode">Conference code: <?= $conferenceCode ?></div>
-			<div id="status"></div>
+		<div class="container">
+			<div id="left">
+				<div id="status">Hold on..</div>
+				<div id="wrapper">
+					<div class="key" rel="1">1</div>
+					<div class="key" rel="2">2<span>abc</span></div>
+					<div class="key" rel="3">3<span>def</span></div>
+					<div class="clear"></div>
+					<div class="key" rel="4">4<span>ghi</span></div>
+					<div class="key" rel="5">5<span>jkl</span></div>
+					<div class="key" rel="6">6<span>mno</span></div>
+					<div class="clear"></div>
+					<div class="key" rel="7">7<span>pqrs</span></div>
+					<div class="key" rel="8">8<span>tuv</span></div>
+					<div class="key" rel="9">9<span>wxyz</span></div>
+					<div class="clear"></div>
+					<div class="key special" rel="*">*</div>
+					<div class="key" rel="1">0<span>oper</span></div>
+					<div class="key special" rel="#">#</div>
+					<div class="clear"></div>
+					<div class="key nb"></div>
+					<div class="key phone" rel="connect" style="display: none"><i class="fa fa-phone"></i></div>
+					<div class="key nb"></div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div id="right">
+				<div id="conferenceCode">Conference code: <?= $conferenceCode ?></div>
 
-			<div id="wrapper">    
-				<div class="key" rel="1">1</div>
-				<div class="key" rel="2">2<span>abc</span></div>
-				<div class="key" rel="3">3<span>def</span></div>
-				<div class="clear"></div>
-				<div class="key" rel="4">4<span>ghi</span></div>
-				<div class="key" rel="5">5<span>jkl</span></div>
-				<div class="key" rel="6">6<span>mno</span></div>
-				<div class="clear"></div>
-				<div class="key" rel="7">7<span>pqrs</span></div>
-				<div class="key" rel="8">8<span>tuv</span></div>
-				<div class="key" rel="9">9<span>wxyz</span></div>
-				<div class="clear"></div>
-				<div class="key special" rel="*">*</div>
-				<div class="key" rel="1">0<span>oper</span></div>
-				<div class="key special" rel="#">#</div>
-				<div class="clear"></div>
-				<div class="key nb"></div>
-				<div class="key phone" rel="connect" style="display: none"><i class="fa fa-phone"></i></div>
-				<div class="key nb"></div>
-				<div class="clear"></div>
+				<?php
+				if (isset($config['numbers']) && !empty($config['numbers'])) {
+					echo "<div id='callbyphonewrapper'><h3>Call by phone</h3>";
+					foreach ($config['numbers'] as $countryCode => $number) {
+						echo "<div class='callbyphone'><strong>{$countryCode}</strong>: <a href='tel:{$number}'>{$number}</a></div>";
+					}
+					echo "</div>";
+				}
+				?>
+
+				<h3 id="participantsHeader">Participants</h3>
+				<div id="participants"></div>
 			</div>
 
-			<?php
-			if (isset($config['numbers']) && !empty($config['numbers'])) {
-				echo "<div id='callbyphonewrapper'><h3>Call by phone</h3>";
-				foreach ($config['numbers'] as $countryCode => $number) {
-					echo "<div class='callbyphone'><strong>{$countryCode}</strong>: <a href='tel:{$number}'>{$number}</a></div>";
-				}
-				echo "</div>";
-			}
-			?>
+			<div class="clear">&nbsp;</div>
 
 			<p>
 				<a href='https://twitter.com/ashleyhindle'>Made by @ashleyhindle</a> &bull; <a href='https://github.com/ashleyhindle/myconferenceisonfire/'>GitHub</a>

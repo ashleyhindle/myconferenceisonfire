@@ -4,6 +4,24 @@ body {
   font-weight: 300;
 }
 
+.container {
+  text-align: center;
+  width: 900px;
+  margin: 0 auto;
+}
+
+#left {
+  width: 45%;
+  float:left;
+}
+
+#right {
+  width: 45%;
+  float:left;
+  background-color: #D4EE9F;
+  min-height: 475px;
+}
+
 #wrapper {
   width:252px;
   height:410px;
@@ -73,6 +91,18 @@ body {
 
 .clear {
   clear:both;
+}
+
+#status {
+  padding: 0.5rem;
+  background-color: #7A9F35;
+  color: #FFFFFF;
+}
+
+#conferenceCode {
+  padding: 0.5rem;
+  background-color: #669999;
+  color: #FFFFFF;
 }
 
 /* Landscape phones and down */
