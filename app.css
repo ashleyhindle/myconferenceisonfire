@@ -110,7 +110,11 @@ body {
     #left {
       display: none;
     }
-  
+
+  #right {
+    2width: 100%;
+  }
+
 	#wrapper {
 		display:none;
 	}
