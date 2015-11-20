@@ -107,6 +107,10 @@ body {
 
 /* Landscape phones and down */
 @media only screen and (max-width: 40em) { /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+    #left {
+      display: none;
+    }
+  
 	#wrapper {
 		display:none;
 	}
