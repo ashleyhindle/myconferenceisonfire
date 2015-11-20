@@ -77,7 +77,7 @@ $deviceToken = $token->generateToken();
 			if (isset($config['numbers']) && !empty($config['numbers'])) {
 				echo "Call by phone: ";
 				foreach ($config['numbers'] as $countryCode => $number) {
-					echo "<span class='callbyphone'><strong>{$countryCode}</strong>: {$number}</span>";
+					echo "<span class='callbyphone'><strong>{$countryCode}</strong>: <a href='tel:{$number}'>{$number}</a></span>";
 				}
 			}
 			?>
