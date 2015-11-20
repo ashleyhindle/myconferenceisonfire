@@ -79,6 +79,7 @@ $(document).ready(function(){
 			el.removeClass('hangup');
 			el.attr('rel', 'connect');
 			$('#participantsHeader').hide();
+			$('#participants').html('');
 		} else {
 			el.addClass('hangup');
 			el.attr('rel', 'disconnect');
