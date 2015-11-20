@@ -78,11 +78,11 @@ $(document).ready(function(){
 		if(el.hasClass('hangup')) {
 			el.removeClass('hangup');
 			el.attr('rel', 'connect');
-			$('#participantsHeader').show();
+			$('#participantsHeader').hide();
 		} else {
 			el.addClass('hangup');
 			el.attr('rel', 'disconnect');
-			$('#participantsHeader').hide();
+			$('#participantsHeader').show();
 		}
 	};
 });
