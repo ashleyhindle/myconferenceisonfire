@@ -72,6 +72,10 @@ body {
   border:none;
 }
 
+.key.nb {
+  background-color: transparent;
+}
+
 .key.phone {
   background:#5CDB74;
   border:none;

@@ -3,8 +3,15 @@ return [
 	'accountSid' => 'cheese',
 	'authToken' => 'burger',
 	'appSid' => 'tasty',
-        'numbers' => [
-                'GB' => '0131 xxx xxxx',
-                'US' => '1800 xxx xxxx'
-        ]
+    'numbers' => [
+            'GB' => '0131 xxx xxxx',
+            'US' => '1800 xxx xxxx'
+    ],
+    'sounds' => [
+            'wait' => [ 'local' => 'sounds/wait.wav', 'remote' => "{$url}/sounds/wait.wav" ],
+            'joining' => [ 'local' => 'sounds/joining-dont-play.wav', 'remote' => "{$url}/sounds/joining-dont-play.wav" ],
+            'welcome' => [ 'local' => 'sounds/professional/welcome-mciof.wav', 'remote' => "{$url}/sounds/professional/welcome-mciof.wav" ],
+            'enterPin' => [ 'local' => 'sounds/professional/enter-pin.wav', 'remote' => "{$url}/sounds/professional/enter-pin.wav" ],
+            'invalidPin' => [ 'local' => 'sounds/professional/invalid-pin.wav', 'remote' => "{$url}/sounds/professional/invalid-pin.wav" ],
+    ]
 ];
