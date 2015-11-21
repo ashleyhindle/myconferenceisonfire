@@ -1,4 +1,9 @@
 <?php
+$protocol = (isset($_SERVER['HTTPS'])) ? 'https' : 'http';
+$url = "{$protocol}://{$_SERVER['HTTP_HOST']}";
+$url .= str_replace(array('simple-conference.php', basename(__FILE__)), '',  $_SERVER['PHP_SELF']);
+
+
 return [
 	'accountSid' => 'cheese',
 	'authToken' => 'burger',
