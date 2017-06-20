@@ -53,7 +53,7 @@ $deviceToken = $token->generateToken();
 		<title>
 			MyConferenceIsOnFire
 		</title>
-		<meta name="viewport" content="width=device-width; maximum-scale=1; minimum-scale=1;" />
+		<meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1" />
 		<meta property="og:site_name" content="<?= $url ?>" />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="Conference call system" />
@@ -84,6 +84,8 @@ $deviceToken = $token->generateToken();
 		<input type="hidden" id="deviceToken" value="<?= $deviceToken ?>">
 		<input type="hidden" id="conferenceCode" value="<?= $conferenceCode ?>">
 		<div class="container">
+			<div style='display:none' class="alert alert-warning" id="muted" role="alert"><strong>Muted</strong> Hey there, you're muted, nobody can hear you</div>
+
 			<div id="left">
 				<div id="status">Hold on..</div>
 				<div id="wrapper">
@@ -105,7 +107,7 @@ $deviceToken = $token->generateToken();
 					<div class="clear"></div>
 					<div class="key nb"></div>
 					<div class="key phone" rel="connect" style="display: none"><i class="fa fa-phone"></i></div>
-					<div class="key nb"></div>
+					<div class="key muteSwitch" rel="muteSwitch" style="display: none"><i class="fa fa-microphone-slash"></i></div>
 					<div class="clear"></div>
 				</div>
 			</div>

@@ -38,13 +38,17 @@ $(document).ready(function(){
 	Twilio.Device.ready(function (device) {
 		$('#status').html('Click the green call button to join the conference');
 		$('.key.phone').show();
+		$('.key.muteSwitch').show();
 		$(".key").click(function() {
 			var value = $(this).attr("rel");
 
 			if (value == "connect") {
 				connection = Twilio.Device.connect({'conferenceCode': conferenceCode});
 			} else if (value == "disconnect") {
+				unmute();
 				Twilio.Device.disconnectAll();
+			} else if (value == "muteSwitch") {
+				toggleMute();
 			} else if (connection) {
 				connection.sendDigits(value);
 			}
@@ -87,6 +91,31 @@ $(document).ready(function(){
 			el.attr('rel', 'disconnect');
 			$('#participantsHeader').show();
 		}
+	};
+
+	function toggleMute() {
+		if (connection === null) {
+			console.log('Cannot mute, no connection made');
+			return;
+		}
+		var el = $('.key.muteSwitch');
+		if (connection.isMuted()) {
+			unmute();
+		} else {
+			mute();
+		}
+	};
+
+	function unmute() {
+		$('#muted').hide();
+		connection.mute(false);
+		$('.key.muteSwitch').removeClass('muted');
+	};
+
+	function mute() {
+		$('#muted').show();
+		connection.mute(true);
+		$('.key.muteSwitch').addClass('muted');
 	};
 });
 

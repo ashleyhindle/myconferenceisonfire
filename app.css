@@ -84,6 +84,18 @@ body {
   font-size:40px;
 }
 
+.key.muteSwitch {
+  line-height:60px;
+  font-size:40px;
+}
+
+.key.muteSwitch.muted {
+  background:#FF3B30;
+  color:#FFF;
+  line-height:60px;
+  font-size:40px;
+}
+
 .key.hangup {
   background:#FF3B30;
   border:none;
