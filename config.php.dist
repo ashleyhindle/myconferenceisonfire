@@ -5,9 +5,9 @@ $url .= str_replace(array('simple-conference.php', basename(__FILE__)), '',  $_S
 
 
 return [
-	'accountSid' => 'cheese',
-	'authToken' => 'burger',
-	'appSid' => 'tasty',
+	'accountSid' => '{{ACCOUNTSID}}',
+	'authToken' => '{{AUTHTOKEN}}',
+	'appSid' => '{{APPSID}}',
     'numbers' => [
             'GB' => '0131 xxx xxxx',
             'US' => '1800 xxx xxxx'

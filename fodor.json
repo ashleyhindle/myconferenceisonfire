@@ -1,0 +1,54 @@
+{
+  "name": "ashleyhindle/myconferenceisonfire",
+  "installpath": "/var/www/myconferenceisonfire/",
+  "provisioner": "fodor/provisioner.sh",
+  "text": {
+      "complete": "All done! Enjoy!",
+      "failed": "Sorry about that, destroy the droplet and try again"
+  },
+  "links": [
+    {
+      "title": "Now you can use it!",
+      "url": "http://{{DOMAIN}}/"
+    },
+    {
+      "title": "Configuration",
+      "url": "https://github.com/ashleyhindle/myconferenceisonfire/blob/master/CONFIGURATION.md"
+    }
+  ],
+  "size": {
+    "suggested": "512mb",
+    "required": "512mb"
+  },
+  "distro": "ubuntu-16-04-x64",
+  "description": "Conferencing system built on Twilio, with ability to dial in and use a softphone",
+  "keywords": ["fodor", "conference", "sip", "twilio", "conferencing"],
+  "homepage": "https://github.com/ashleyhindle/myconferenceisonfire",
+  "image": "https://i.ashleyhindle.com/2017-06-24-17-20-35-mbxw453kl9.png",
+  "inputs": [
+    {
+        "title": "Admin Email",
+        "name": "admin_email",
+        "placeholder": "This is used for SSL certificates renewal notices if for some reason they fail",
+        "type": "email"
+    },
+    {
+      "title": "Auth Token",
+      "name": "authtoken",
+      "notes": "You can find this in your Twilio account settings",
+      "type": "string"
+    },
+    {
+      "title": "Account Sid",
+      "name": "accountsid",
+      "notes": "You can find this in your Twilio account settings",
+      "type": "string"
+    },
+    {
+      "title": "Application Sid",
+      "name": "appsid",
+      "notes": "You can find this on your TwiML App's setting page",
+      "type": "string"
+    }
+  ]
+}
