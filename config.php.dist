@@ -9,8 +9,7 @@ return [
 	'authToken' => '{{AUTHTOKEN}}',
 	'appSid' => '{{APPSID}}',
     'numbers' => [
-            'GB' => '0131 xxx xxxx',
-            'US' => '1800 xxx xxxx'
+            'GB' => 'Get a number from Twilio',
     ],
     'sounds' => [
             'wait' => [ 'local' => 'sounds/wait.wav', 'remote' => "{$url}/sounds/wait.wav" ],
