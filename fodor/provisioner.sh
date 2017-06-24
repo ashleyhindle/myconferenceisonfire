@@ -15,7 +15,7 @@ cp fodor/nginx/vhost.conf /etc/nginx/sites-enabled/default
 service nginx stop
 # LetsEncrypt Certificate
 mkdir /var/www/letsencrypt/
-letsencrypt certonly -a standalone -d ${DOMAIN} --agree-tos --email ${ADMIN_EMAIL}
+letsencrypt certonly --non-interactive -a standalone -d ${DOMAIN} --agree-tos --email ${ADMIN_EMAIL}
 
 # Ensure nginx config points to correct SSL cert
 sed -i -e "s/{{DOMAIN}}/${DOMAIN}/g" /etc/nginx/sites-enabled/default
