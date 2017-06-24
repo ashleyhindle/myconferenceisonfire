@@ -21,7 +21,7 @@ letsencrypt certonly -a standalone -d ${DOMAIN} --agree-tos --email ${ADMIN_EMAI
 sed -i -e "s/{{DOMAIN}}/${DOMAIN}/g" /etc/nginx/sites-enabled/default
 
 # Ensure x-wav is supported by nginx so Twilio correctly plays the files
-sed -e $'s/^}$/        audio\/x-wav wav;\\\n}/g' /etc/nginx/mime.types
+sed -i -e $'s/^}$/        audio\/x-wav wav;\\\n}/g' /etc/nginx/mime.types
 
 service nginx start
 
