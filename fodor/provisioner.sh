@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-apt-get -y install software-properties-common nginx php-fpm ca-certificates curl
+apt-get -y install software-properties-common nginx php7.0-fpm php7.0-cli ca-certificates curl
 
 add-apt-repository ppa:certbot/certbot
 apt-get update
