@@ -1,11 +1,8 @@
 #!/bin/bash
 
-
-apt-get -y install software-properties-common nginx php7.0-fpm php7.0-cli php7.0-common php7.0-json php7.0-opcache php7.0-readline ca-certificates curl
-
 add-apt-repository ppa:certbot/certbot
 apt-get update
-apt-get -y install python-certbot-nginx
+apt-get -y install python-certbot-nginx nginx php7.0-fpm php7.0-cli php7.0-common php7.0-json php7.0-opcache php7.0-readline
 
 
 curl -o /usr/local/bin/composer https://getcomposer.org/composer.phar
