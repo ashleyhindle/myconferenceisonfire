@@ -1,16 +1,27 @@
 # My Conference Is On Fire
 
-Very basic conferencing system built on Twilio
+Basic conferencing system built on Twilio, with softphone, phone dial in and professional recordings
 
-## Test it out (a little bit, I'm not made of money!)
-[http://conference.ashleyhindle.com](http://conference.ashleyhindle.com) or call +441315101552 or (858) 707-7749 - then ask your friend to join with the same code!
+## Setup my own system
 
+Deploy your own instance of this app on DigitalOcean in 60~ seconds with Fodor:
+
+[![deploy-with-fodor-image](https://fodor.xyz/images/install-shield.svg)](https://fodor.xyz/provision/ashleyhindle/myconferenceisonfire)
+
+Please make sure you add a [TWiML app](https://www.twilio.com/user/account/voice/dev-tools/twiml-apps) first 
+
+## Test it out
+* Go to [https://conference.ashleyhindle.com](https://conference.ashleyhindle.com)
+* Call +441315101552
+* * or 
+* Call (858) 707-7749
+
+Ask your friend to join with the same code!
 
 ## How to dial in
 
 * Call your Twilio Number
-* Go to your website and use the twilio javascript client
-
+* Go to your website and use the Twilio javascript client
 
 ## Setup
 
@@ -19,7 +30,6 @@ Very basic conferencing system built on Twilio
 * Call your new number, and enter any number and ask other people to enter the same number
 
 ![image](twiml-app.png)  
-
 
 ## Browser Connection Setup
 * Grab the app's `Sid` from your [TwiML app](https://www.twilio.com/user/account/voice/dev-tools/twiml-apps) configuration
