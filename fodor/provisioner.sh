@@ -1,6 +1,13 @@
 #!/bin/bash
 
-apt-get -y install nginx php-fpm letsencrypt ca-certificates curl
+
+apt-get -y install software-properties-common nginx php-fpm ca-certificates curl
+
+add-apt-repository ppa:certbot/certbot
+apt-get update
+apt-get -y install python-certbot-nginx
+
+
 curl -o /usr/local/bin/composer https://getcomposer.org/composer.phar
 chmod a+x /usr/local/bin/composer
 
@@ -8,9 +15,10 @@ chmod a+x /usr/local/bin/composer
 rm /etc/nginx/sites-enabled/default
 cp fodor/nginx/vhost.conf /etc/nginx/sites-enabled/default
 
+service nginx stop
 # LetsEncrypt Certificate
 mkdir /var/www/letsencrypt/
-letsencrypt certonly -a webroot -w /var/www/letsencrypt -d ${DOMAIN} --agree-tos --email ${ADMIN_EMAIL}
+letsencrypt certonly -a standalone -d ${DOMAIN} --agree-tos --email ${ADMIN_EMAIL}
 
 # Ensure nginx config points to correct SSL cert
 sed -i -e "s/{{DOMAIN}}/${DOMAIN}/g" /etc/nginx/sites-enabled/default
@@ -18,15 +26,14 @@ sed -i -e "s/{{DOMAIN}}/${DOMAIN}/g" /etc/nginx/sites-enabled/default
 # Ensure x-wav is supported by nginx so Twilio correctly plays the files
 sed -e $'s/^}$/        audio\/x-wav wav;\\\n}/g' /etc/nginx/mime.types
 
-service nginx restart
+service nginx start
 
 # Setup LetsEncrypt auto renewals
 echo "
-0 0 */3 * * root /usr/bin/letsencrypt renew --post-hook \"service nginx restart\" >> /var/log/le-renew.log
+0 0 */3 * * root /usr/bin/letsencrypt renew --pre-hook \"service nginx stop\" --post-hook \"service nginx start\" >> /var/log/le-renew.log
 " > /etc/cron.d/letsencrypt
 
 chmod 644 /etc/cron.d/letsencrypt
-
 
 # Unattended updates
 echo "APT::Periodic::Update-Package-Lists \"1\";

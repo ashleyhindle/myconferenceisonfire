@@ -35,7 +35,7 @@
     {
       "title": "Auth Token",
       "name": "authtoken",
-      "notes": "You can find this in your Twilio account settings",
+      "notes": "You can find this in your Twilio account settings, under API Credentials",
       "type": "string"
     },
     {
