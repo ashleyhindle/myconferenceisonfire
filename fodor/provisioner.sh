@@ -51,8 +51,7 @@ Unattended-Upgrade::Mail \"root@localhost\";
 ufw allow OpenSSH
 ufw allow http
 ufw allow https
-yes | ufw enable
-
+ufw --force enable
 
 # ------------
 
