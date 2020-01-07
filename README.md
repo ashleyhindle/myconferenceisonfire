@@ -4,10 +4,6 @@ Basic conferencing system built on Twilio, with softphone, phone dial in and pro
 
 ## Setup my own system
 
-Deploy your own instance of this app on DigitalOcean in 60~ seconds with Fodor:
-
-[![deploy-with-fodor-image](https://fodor.xyz/images/install-shield.svg)](https://fodor.xyz/provision/ashleyhindle/myconferenceisonfire)
-
 Please make sure you add a [TWiML app](https://www.twilio.com/user/account/voice/dev-tools/twiml-apps) first 
 
 ## Test it out
